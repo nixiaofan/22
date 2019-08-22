@@ -8,13 +8,9 @@
 import scrapy
 
 
-class BilibiliItem(scrapy.Item):
+class TutorialItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    '''
-    名字，观看次数，图片地址
-    '''
-    title = scrapy.Field()
-    watch = scrapy.Field()
-    image = scrapy.Field()
-
+    text = scrapy.Field()
+    author = scrapy.Field()
+    tags = scrapy.Field()

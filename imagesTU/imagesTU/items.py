@@ -6,15 +6,14 @@
 # https://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+from scrapy import Field
 
 
-class BilibiliItem(scrapy.Item):
+class ImagestuItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    '''
-    名字，观看次数，图片地址
-    '''
-    title = scrapy.Field()
-    watch = scrapy.Field()
-    image = scrapy.Field()
+    # collection = table = 'images'
+    id = Field()
+    url = Field()
+    title = Field()
 

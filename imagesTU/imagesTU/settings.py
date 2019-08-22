@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for bilibili project
+# Scrapy settings for imagesTU project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'bilibili'
+BOT_NAME = 'imagesTU'
 
-SPIDER_MODULES = ['bilibili.spiders']
-NEWSPIDER_MODULE = 'bilibili.spiders'
+SPIDER_MODULES = ['imagesTU.spiders']
+NEWSPIDER_MODULE = 'imagesTU.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'bilibili (+http://www.yourdomain.com)'
+#USER_AGENT = 'imagesTU (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'bilibili.middlewares.BilibiliSpiderMiddleware': 543,
+#    'imagesTU.middlewares.ImagestuSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'bilibili.middlewares.BilibiliDownloaderMiddleware': 543,
+#    'imagesTU.middlewares.ImagestuDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -64,9 +64,13 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'bilibili.pipelines.BilibiliPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'imagesTU.pipelines.ImagestuPipeline': 302,
+    'imagesTU.pipelines.MysqlPipeline': 301,
+    'imagesTU.pipelines.ImagePipeline': 300,
+}
+
+IMAGES_STORE = './images'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -89,5 +93,10 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
+MAX_PAGE = 50
 
-MAX_PAGE = 30
+MYSQL_HOST = 'localhost'
+MYSQL_DATABASE = 'test'
+MYSQL_PORT = 3306
+MYSQL_USER = 'root'
+MYSQL_PASSWORD = 'nixiaofan'
